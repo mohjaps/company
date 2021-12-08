@@ -1,0 +1,81 @@
+﻿@model company.Models.Employee
+@inject AppDatabase db
+@using company.Models
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Employee</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="First_Name" class="control-label"></label>
+                <input asp-for="First_Name" class="form-control" />
+                <span asp-validation-for="First_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Last_Name" class="control-label"></label>
+                <input asp-for="Last_Name" class="form-control" />
+                <span asp-validation-for="Last_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tel" class="control-label"></label>
+                <input asp-for="Tel" class="form-control" />
+                <span asp-validation-for="Tel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Salary" class="control-label"></label>
+                <input asp-for="Salary" class="form-control" />
+                <span asp-validation-for="Salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hire_Date" class="control-label"></label>
+                <input asp-for="Hire_Date" type="date" class="form-control" />
+                <span asp-validation-for="Hire_Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image_Path" class="control-label"></label>
+                <input type="file" name="files" class="form-control" />
+                <span asp-validation-for="Image_Path" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepId" class="control-label"></label>
+
+                <select asp-for="DepId" class="form-control">
+                    <option value="">Select A Department</option>
+                    @{ 
+                        List<Department> depts = db.Department.ToList();
+                        foreach (var dep in depts)
+                        {
+                            <option value="@dep.Id">@dep.Name</option>
+                        }
+                    }
+                </select>
+                    @*<input asp-for="DepId" class="form-control" />*@
+                    <span asp-validation-for="DepId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

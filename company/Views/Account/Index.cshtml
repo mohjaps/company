@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewData["Title"] = "Accounts";
+}
+<h1 class="text-center text-uppercase text-info">@ViewData["Title"]</h1>
+<p><br /></p>
+<div class="bg-warning">
+
+
+    <div class="nav-item">
+        <a class="nav-link btn btn-light my-1" asp-action="Register">Register</a>
+    </div>
+    <div class="nav-item">
+        <a class="nav-link btn btn-light my-1" asp-action="Login">Login</a>
+    </div>
+    <div class="nav-item">
+        <a class="nav-link btn btn-light my-1" asp-action="Logout">Logout</a>
+    </div>
+    <div class="nav-item">
+        <a class="nav-link btn btn-light my-1" asp-action="GenerateRoles">Generate Roles</a>
+    </div>
+    <div class="nav-item">
+        <a class="nav-link btn btn-light my-1" asp-action="GenerateUsers">Generate Users</a>
+    </div>
+    <div class="nav-item">
+        <a class="nav-link btn btn-light my-1" asp-controller="User" asp-action="Index">My Profile</a>
+    </div>
+    <div class="nav-item">
+        <a class="nav-link btn btn-light my-1" asp-controller="User" asp-action="Anonymous">Anonymous Page</a>
+    </div>
+    <div class="nav-item">
+        <a class="nav-link btn btn-light my-1" asp-controller="Admin" asp-action="Index">Admin Dashboard</a>
+    </div>
+    <div class="nav-item">
+        <a class="nav-link btn btn-light my-1" asp-controller="Manager" asp-action="Index">Manager Dashboard</a>
+    </div>
+    <div class="nav-item">
+        <a class="nav-link btn btn-light my-1" asp-action="SendEmail">Send Email</a>
+    </div>
+    <div class="nav-item">
+        <a class="nav-link btn btn-light my-1" asp-action="Register2">Register with Email Confirmation</a>
+    </div>
+    <div class="nav-item">
+        <a class="nav-link btn btn-light my-1" asp-action="RegisterCaptcha">Register with reCaptcha</a>
+    </div>
+    <div class="nav-item">
+        <a class="nav-link btn btn-light my-1" asp-action="LoginRememberMe">Login Remember Me</a>
+    </div>
+    <div class="nav-item">
+        <a class="nav-link btn btn-light my-1" asp-action="Logoutrememberme">Logout Remember Me</a>
+    </div>
+    <div class="nav-item">
+        <a class="nav-link btn btn-light my-1" asp-action="ForgotAccount">Forgot Username</a>
+    </div>
+    <div class="nav-item">
+        <a class="nav-link btn btn-light my-1" asp-action="ForgotPassword">Reset Password</a>
+    </div>
+    <div class="nav-item">
+        <a class="nav-link btn btn-light my-1" asp-action="LoginTwoFactor">Login with multi-factor authentication</a>
+    </div>
+
+
+</div>
