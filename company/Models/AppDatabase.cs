@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using company.Models.UsersSec;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace company.Models
 {
-    public class AppDatabase : DbContext
+    public class AppDatabase : IdentityDbContext<AppUser>
     {
         public AppDatabase(DbContextOptions<AppDatabase> options):base(options)
         {

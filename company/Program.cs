@@ -1,5 +1,8 @@
+using company.Models;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
@@ -13,7 +16,15 @@ namespace company
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var host = CreateHostBuilder(args).Build();
+            
+            using (var services = host.Services.CreateScope())
+            {
+                var dbcontext = services.ServiceProvider.GetRequiredService<AppDatabase>();
+                dbcontext.Database.Migrate();
+            }
+                
+            host.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

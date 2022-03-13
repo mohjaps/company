@@ -51,6 +51,8 @@ namespace company.Migrations
                 name: "IX_Employee_DepId",
                 table: "Employee",
                 column: "DepId");
+
+            migrationBuilder.Sql("");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -1,11 +1,7 @@
 ﻿using company.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace company.Controllers
 {
@@ -28,6 +24,7 @@ namespace company.Controllers
         // GET: DepartmentController/Details/5
         public ActionResult Details(int id)
         {
+
             var dep = db.Department.Where(d => d.Id == id).FirstOrDefault();
             return View(dep);
         }
@@ -51,6 +48,7 @@ namespace company.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
+                TempData["Alert"] = "Create Done...";
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -69,7 +67,7 @@ namespace company.Controllers
         // POST: DepartmentController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, [FromForm]Department formDep)
+        public ActionResult Edit(int id, [FromForm] Department formDep)
         {
             try
             {
@@ -80,6 +78,7 @@ namespace company.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
+                ViewData["Alert"] = "Edit Done...";
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -108,6 +107,7 @@ namespace company.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
+                TempData["Alert"] = "Delete Done...";
                 return RedirectToAction(nameof(Index));
             }
             catch
